@@ -8,6 +8,8 @@ Pada kesempatan kali ini kami akan menganalisis kompleksitas algoritma dari *4 j
 
 ## Radix Sort Algorithm
 ![Radix Sort](./radix.png)
+
+
 Berikut merupakan analisis dari **Radix Sort Algorithm**
 ```bash
 Deklarasi:
@@ -63,6 +65,8 @@ Pada Radix Sort Algorithm terdapat nilai max dimana digunakan untuk menghitung n
 
 ## Bubble Sort Algorithm
 ![Bubble Sort](./bubble.png)
+
+
 Berikut merupakan analisis dari **Bubble Sort Algorithm**
 ```bash
 Deklarasi:
@@ -111,6 +115,8 @@ Sn  = n/2(a + Un)
 
 ## Insertion Sort
 ![Insertion Sort](./insertion.png)
+
+
 Berikut merupakan analisis dari **Insertion Sort Algorithm**
 ```bash
 Deklarasi:
@@ -152,6 +158,8 @@ Sn  = n/2(a + Un)
 
 ## Selection Sort
 ![Selection Sort](./selection.png)
+
+
 Berikut merupakan analisis dari Selection Sort Algorithm
 ```bash
 Deklarasi:
