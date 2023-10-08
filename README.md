@@ -55,3 +55,43 @@ Sn  = n/2(a + Un)
     = n/2(n-1 + 0)
     = n(n-1)/2
 ```
+
+## Insertion Sort
+Berikut merupakan analisis dari Insertion Sort Algorithm
+```bash
+Deklarasi:
+i: integer
+j: integer
+key: integer
+Algoritma:
+i = 1;                                //1
+while(i < n) {                        //n
+    key = arr[i];                     //n-1
+    j = i - 1;                        //2(n-1)
+    while (j >= 0 && arr[j] > key){   //n(n+3)/2
+        arr[j + 1] = arr[j];          //2(n(n+1)/2)
+        j = j - 1;                    //2(n(n+1)/2)
+    }
+    arr[j + 1] = key;                 //n-1
+    i = i + 1;                        //2(n-1)
+}
+```
+Dari perhitunga tersebut didapatkan:
+```bash
+T(n)    = 1 + n + n-1 + 2(n-1) + n(n+3)/2 + 2(n(n+1)/2) + 2(n(n+1)/2) + n-1 + 2(n-1)
+        = (5n^2 + 21n - 10)/2
+O(n^2)
+```
+**Penjelasan untuk perulangan kedua**
+
+Pada perulangan kedua sudah pasti jumlah perulangan dimulai dengan 1 kali perulangan kemudian 2 kali kemudian 3 kali sampai hanya n-1 kali perulangan sehingga di dapat perulangan tersebut membentuk pola aritmatika dengan bilangan pertama didapatkan 1 dan beda 1
+```bash
+a   = 1
+b   = 1
+Un  = a + (n-1)b
+    = 1 + (n-1)1
+    = n
+Sn  = n/2(a + Un)
+    = n/2(1 + n)
+    = n(n+1)/2
+```
