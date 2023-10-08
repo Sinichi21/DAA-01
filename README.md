@@ -7,6 +7,7 @@ Pada kesempatan kali ini kami akan menganalisis kompleksitas algoritma dari *4 j
 - Selection Sort
 
 ## Radix Sort Algorithm
+![Radix Sort](./radix.png)
 Berikut merupakan analisis dari **Radix Sort Algorithm**
 ```bash
 Deklarasi:
@@ -61,6 +62,7 @@ O(mn)
 Pada Radix Sort Algorithm terdapat nilai max dimana digunakan untuk menghitung nilai terbesar. Nilai tersebut digunakan untuk melakukan perulangan sebanyak panjang bilangan. Sebagai contoh misalkan nilai terbesar dari suatu himpunan bilangan 1867, maka m = 4 dan akan melakukan perulangan sebanyak 4 kali pada baris 28 s/d 51. Jika nilai terbesar 75, maka akan melakukan perulangan sebanyak 2 kali.
 
 ## Bubble Sort Algorithm
+![Bubble Sort](./bubble.png)
 Berikut merupakan analisis dari **Bubble Sort Algorithm**
 ```bash
 Deklarasi:
@@ -108,6 +110,7 @@ Sn  = n/2(a + Un)
 ```
 
 ## Insertion Sort
+![Insertion Sort](./insertion.png)
 Berikut merupakan analisis dari **Insertion Sort Algorithm**
 ```bash
 Deklarasi:
@@ -148,6 +151,7 @@ Sn  = n/2(a + Un)
 ```
 
 ## Selection Sort
+![Selection Sort](./selection.png)
 Berikut merupakan analisis dari Selection Sort Algorithm
 ```bash
 Deklarasi:
