@@ -7,10 +7,10 @@ Pada kesempatan kali ini kami akan menganalisis kompleksitas algoritma dari *4 j
 - Selection Sort
 
 ## Radix Sort Algorithm
-Berikut merupakan analisis dari Radix Sort Algorithm
+Berikut merupakan analisis dari **Radix Sort Algorithm**
 
 ## Bubble Sort Algorithm
-Berikut merupakan analisis dari Bubble Sort Algorithm
+Berikut merupakan analisis dari **Bubble Sort Algorithm**
 ```bash
 Deklarasi:
 temp: integer;
@@ -57,7 +57,7 @@ Sn  = n/2(a + Un)
 ```
 
 ## Insertion Sort
-Berikut merupakan analisis dari Insertion Sort Algorithm
+Berikut merupakan analisis dari **Insertion Sort Algorithm**
 ```bash
 Deklarasi:
 i: integer
@@ -94,4 +94,50 @@ Un  = a + (n-1)b
 Sn  = n/2(a + Un)
     = n/2(1 + n)
     = n(n+1)/2
+```
+
+## Selection Sort
+Berikut merupakan analisis dari Selection Sort Algorithm
+```bash
+Deklarasi:
+i: integer
+j: integer
+minIndex: integer
+temp: integer
+Algoritma:
+i = 0;                                    //1
+while(i < n - 1) {                        //n
+    minIndex = i;                         //n-1
+    j = i + 1;                            //2(n-1)
+    while(j < n) {                        //n(n)/2
+        if (arr[j] < arr[minIndex]) {     //n(n-1)/2
+            minIndex = j;                 //n(n-1)/2
+        }
+        j = j + 1;                        //2(n(n-1)/2)    
+    }
+    temp = arr[minIndex];                 //n-1
+    arr[minIndex] = arr[i];               //n-1
+    arr[i] = temp;                        //n-1
+    i = i + 1;                            //2(n-1)
+}
+```
+Dari perhitunga tersebut didapatkan:
+```bash
+T(n)    = 1 + n + n-1 + 2(n-1) + n(n)/2 + n(n-1)/2 + n(n-1)/2 + 2(n(n-1)/2) + n-1 + n-1 + n-1 + 2(n-1)
+        = (5n^2 + 14n - 14)/2
+O(n^2)
+```
+**Penjelasan untuk perulangan kedua**
+
+Pada perulangan kedua sudah pasti jumlah perulangan dimulai dengan n-1 kemudian n-2 kemudian n-3 sampai hanya 1 kali perulangan sehingga di dapat perulangan tersebut membentuk pola aritmatika dengan bilangan pertama didapatkan n-1 dan beda -1
+```bash
+a   = n-1
+b   = -1
+Un  = a + (n-1)b
+    = n-1 + (n-1)*(-1)
+    = n-1 + (-n+1)
+    = 0
+Sn  = n/2(a + Un)
+    = n/2(n-1 + 0)
+    = n(n-1)/2
 ```
