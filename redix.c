@@ -11,26 +11,15 @@ int findMax(int arr[], int n) {
     return max;
 }
 
-// Fungsi untuk melakukan pengurutan radix
-void radixSort(int arr[], int n) {
-    int max = findMax(arr, n);
-    int exp;
-    for (exp = 1; max / exp > 0; exp *= 10) {
-        countingSort(arr, n, exp);
-    }
-}
-
 // Fungsi untuk melakukan pengurutan berdasarkan digit ke-eksponen tertentu
 void countingSort(int arr[], int n, int exp) {
     int output[n];
     int count[10] = {0};
     int i;
-
     // Menghitung berapa kali setiap digit muncul
     for (i = 0; i < n; i++) {
         count[(arr[i] / exp) % 10]++;
     }
-
     // Menghitung kumulatif count[]
     for (i = 1; i < 10; i++) {
         count[i] += count[i - 1];
@@ -45,6 +34,15 @@ void countingSort(int arr[], int n, int exp) {
     // Menyalin output array ke arr[] agar daftar terurut
     for (i = 0; i < n; i++) {
         arr[i] = output[i];
+    }
+}
+
+// Fungsi untuk melakukan pengurutan radix
+void radixSort(int arr[], int n) {
+    int max = findMax(arr, n);
+    int exp;
+    for (exp = 1; max / exp > 0; exp *= 10) {
+        countingSort(arr, n, exp);
     }
 }
 
