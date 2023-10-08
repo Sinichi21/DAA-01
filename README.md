@@ -35,6 +35,7 @@ while(i < n - 1){                    //2n
     i = i + 1;                       //2(n-1)
 }
 ```
+Dari perhitunga tersebut didapatkan:
 T(n)= 1 + 2n + n-1 + n-1 + 3((n(n-1)/2)+1) + 2(n(n-1)/2) + 1(n(n-1)/2) + 2(n(n-1)/2) + 2(n(n-1)/2) + n(n-1)/2 + 2(n(n-1)/2) + n-1 + n-1 + 2(n-1)
     = (13n^2 + 3n + 4)/2
-O(n^2) 
+O(n^2)
