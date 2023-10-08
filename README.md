@@ -12,21 +12,29 @@ Berikut merupakan analisis dari Radix Sort Algorithm
 ## Bubble Sort Algorithm
 Berikut merupakan analisis dari Bubble Sort Algorithm
 ```bash
-int i, j;
-    bool swapped;
-    for (i = 0; i < n - 1; i++) {
-        swapped = false;
-        for (j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(&arr[j], &arr[j + 1]);
-                swapped = true;
-            }
+Deklarasi:
+temp: integer;
+swapped: boolean;
+Algoritma:
+int i = 0                            //1
+while(i < n - 1){                    //2n
+    swapped = false;                 //n-1
+    int j = 0                        //n-1
+    while(j < n - i - 1){            //3((n(n-1)/2)+1)
+        if (arr[j] > arr[j + 1]) {   //2(n(n-1)/2)
+            temp = arr[j];           //1(n(n-1)/2)
+            arr[j] = arr[j + 1];     //2(n(n-1)/2)
+            arr[j + 1] = temp;       //2(n(n-1)/2)
+            swapped = true;          //n(n-1)/2
         }
- 
-        // If no two elements were swapped by inner loop,
-        // then break
-        if (swapped == false)
-            break;
+        j = j + 1;                   //2(n(n-1)/2)
     }
+    if (!swapped){                   //n-1
+        break;                       //n-1
+    }
+    i = i + 1;                       //2(n-1)
 }
 ```
+T(n)= 1 + 2n + n-1 + n-1 + 3((n(n-1)/2)+1) + 2(n(n-1)/2) + 1(n(n-1)/2) + 2(n(n-1)/2) + 2(n(n-1)/2) + n(n-1)/2 + 2(n(n-1)/2) + n-1 + n-1 + 2(n-1)
+    = (13n^2 + 3n + 4)/2
+O(n^2) 
