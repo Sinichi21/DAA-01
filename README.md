@@ -206,6 +206,8 @@ Sn  = n/2(a + Un)
 ```
 
 ## Bucket Sort Algorithm
+![Bucket Sort](./bucket.png)
+
 
 ```bash
 Deklarasi:
