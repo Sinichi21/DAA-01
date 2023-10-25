@@ -28,36 +28,36 @@ while(i < n) {                                                           //n
     i = i + 1;                                                           //2(n-1)
 }
 exp = 1                                                                  //1
-while(max / exp > 0) {                                                   //m+1
-    i = 0                                                                //m
-    while(i < n) {                                                       //m(n+1)
-        count[(arr[i] / exp) % 10] = count[(arr[i] / exp) % 10] + 1;     //m(6n)
-        i = i + 1                                                        //m(2n)
+while(max / exp > 0) {                                                   //n+1
+    i = 0                                                                //n
+    while(i < n) {                                                       //n(n+1)
+        count[(arr[i] / exp) % 10] = count[(arr[i] / exp) % 10] + 1;     //n(6n)
+        i = i + 1                                                        //n(2n)
     }
-    i = 1                                                                //m
-    while(i < 10) {                                                      //m(10)
-        count[i] = count[i] + count[i - 1];                              //m(27)
-        i = i + 1;                                                       //m(18)
+    i = 1                                                                //n
+    while(i < 10) {                                                      //n(10)
+        count[i] = count[i] + count[i - 1];                              //n(27)
+        i = i + 1;                                                       //n(18)
     }
-    i = n - 1;                                                           //2m                                                           
-    while(i >= 0){                                                       //m(n+1)
-        output[count[(arr[i] / exp) % 10] - 1] = arr[i];                 //m(4n)
-        count[(arr[i] / exp) % 10] = count[(arr[i] / exp) % 10] - 1;     //m(6n)
-        i = i - 1;                                                       //m(2n)
+    i = n - 1;                                                           //2n                                                          
+    while(i >= 0){                                                       //n(n+1)
+        output[count[(arr[i] / exp) % 10] - 1] = arr[i];                 //n(4n)
+        count[(arr[i] / exp) % 10] = count[(arr[i] / exp) % 10] - 1;     //n(6n)
+        i = i - 1;                                                       //n(2n)
     }
-    i = 0;                                                               //m
-    while(i < n) {                                                       //m(n+1)
-        arr[i] = output[i];                                              //m(n)
-        i = i + 1                                                        //m(2n)
+    i = 0;                                                               //n
+    while(i < n) {                                                       //n(n+1)
+        arr[i] = output[i];                                              //n(n)
+        i = i + 1                                                        //n(2n)
     }
-    exp = exp * 10                                                       //2m
+    exp = exp * 10                                                       //2n
 }
 ```
 Dari perhitunga tersebut didapatkan:
 ```bash
-T(n)    = 1 + 1 + n + n-1 + n-1 +2(n-1) + 1 + m+1 + m + m(n+1) + m(6n) + m(2n) + m + m(10) + m(27) + m(18) + 2m + m(n+1) + m(4n) + m(6n) + m(2n) + m + m(n+1) + m(n) + m(2n) + 2m
-        = 5n + 26mn + 66m
-O(mn)
+T(n)    = 1 + 1 + n + n-1 + n-1 +2(n-1) + 1 + n+1 + n + n(n+1) + n(6n) + n(2n) + n + n(10) + n(27) + n(18) + 2n + n(n+1) + n(4n) + n(6n) + n(2n) + n + n(n+1) + n(n) + n(2n) + 2n
+        = 26n^2 + 71n
+O(n^2)
 ```
 **Penjelasan untuk 'm'**
 
@@ -203,4 +203,44 @@ Un  = a + (n-1)b
 Sn  = n/2(a + Un)
     = n/2(n-1 + 0)
     = n(n-1)/2
+```
+
+## Bucket Sort Algorithm
+
+```bash
+Deklarasi:
+i: integer
+j: integer
+bi: integer
+index: integer
+
+Algoritma:
+vector<float> b[n];                        //1
+i = 0;                                     //1
+while (i < n) {                            //n+1
+    bi = n * arr[i];                       //2n
+    b[bi].push_back(arr[i]);               //n
+    i = i + 1;                             //2n
+}
+i = 0;                                     //1
+while(i < n) {                             //n+1
+    sort(b[i].begin(), b[i].end());        //n
+	index = 0;                             //n
+    i = i + 1;                             //2n
+}
+i = 0;                                     //1
+while(i < n)                               //n+1
+    j = 0                                  //n
+    while(j < b[i].size())                 //n(n)
+        arr[index++] = b[i][j];            //n(3n)
+        j = j + 1;                         //n(2n)
+    }
+    i = 1 + 1                              //2n
+}
+```
+Dari perhitunga tersebut didapatkan:
+```bash
+T(n)    = 1 + 1 + n+1 + 2n + 2n + n + 2n + 1 + n+1 + n + n + 2n + 1 + n+1 + n + n(n) + n(3n) + n(2n) + 2n
+        = 6n^2 + 17n + 7
+O(n^2)
 ```
