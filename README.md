@@ -10,6 +10,9 @@ Pada kesempatan kali ini kami akan menganalisis kompleksitas algoritma dari *4 j
 ![Radix Sort](./radix.png)
 
 
+Radix Sorting adalah metode sorting yang ajaib yang mana mengatur pengurutan nilai tanpa melakukan beberapa perbandingan pada data yang dimasukkan. Secara harfiah, radix dapat diartikan sebagai posisi dalam angka. Pada sistem desimal, radix adalah digit dalam angka desimal. Seperti contoh, angka “42” mempunyai 2 digit yaitu 4 dan 2. Radix Sort memperoleh namanya dari digit-digit tersebut, karena metode ini pertama kalinya mengurutkan nilai-nilai input berdasarkan radix pertamanya, lalu pengurutan dilakukan berdasarkan radix keduanya, begitu juga seterusnya.
+
+
 Berikut merupakan analisis dari **Radix Sort Algorithm**
 ```bash
 Deklarasi:
